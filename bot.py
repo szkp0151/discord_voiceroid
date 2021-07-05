@@ -14,13 +14,6 @@ class VoiceroidTTSBot(commands.Cog):
         self.voice_channel: discord.VoiceChannel = None
         self.voice_client: discord.VoiceClient = None
 
-    def filtered_text(text):
-        return remove_url(text)
-        
-    def remove_url(text):
-        pattern = "https?://[\w/:%#\$&\?\(\)~\.=\+\-]+"
-        return re.sub(pattern,'',text)
-
     @commands.Cog.listener()
     async def on_message(self, message: discord.Message):
         if message.author.bot:  # bot自身のメッセージは何もしない
