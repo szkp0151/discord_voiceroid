@@ -43,7 +43,7 @@ class VoiceroidTTSBot(commands.Cog):
 
                 # URLを置き換える
                 pattern = "https?://[\w/:%#\$&\?\(\)~\.=\+\-]+"
-                replaced_message- re.sub(pattern,'',message.content)
+                replaced_message = re.sub(pattern,'',message.content)
                 
                 read_message = message.author.name + " " + replaced_message
                 print(read_message)
