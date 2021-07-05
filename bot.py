@@ -40,8 +40,9 @@ class VoiceroidTTSBot(commands.Cog):
                 # 喋っている途中は待つ
                 while self.voice_client.is_playing():
                     await asyncio.sleep(0.1)
-                print(message.content)
-                source = discord.FFmpegPCMAudio(text2wav(self.vcroid, message.content))
+                read_message = message.author.name + " " + message.content
+                print(read_message)
+                source = discord.FFmpegPCMAudio(text2wav(self.vcroid, read_message))
                 self.voice_client.play(source)
 
     @commands.command()
