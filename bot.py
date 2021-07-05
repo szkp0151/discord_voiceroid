@@ -47,7 +47,12 @@ class VoiceroidTTSBot(commands.Cog):
                 # 喋っている途中は待つ
                 while self.voice_client.is_playing():
                     await asyncio.sleep(0.1)
-                read_message = message.author.name + " " + filtered_text(message.content)
+
+                # URLを置き換える
+                pattern = "https?://[\w/:%#\$&\?\(\)~\.=\+\-]+"
+                replaced_message- re.sub(pattern,'',message.content)
+                
+                read_message = message.author.name + " " + replaced_message
                 print(read_message)
                 source = discord.FFmpegPCMAudio(text2wav(self.vcroid, read_message))
                 self.voice_client.play(source)
